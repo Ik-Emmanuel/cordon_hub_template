@@ -11600,8 +11600,8 @@ button.close {
 */
 .btn-jupyter {
   color: #fff;
-  background-color: #072857;
-  border-color: #072857;
+  background-color: #f75c03;
+  border-color: #f75c03;
 }
 
 .btn-jupyter.focus,
@@ -11649,12 +11649,12 @@ button.close {
 fieldset[disabled] .btn-jupyter.focus,
 fieldset[disabled] .btn-jupyter:focus,
 fieldset[disabled] .btn-jupyter:hover {
-  background-color: #072857;
-  border-color: #072857;
+  background-color: #f75c03;
+  border-color: #f75c03;
 }
 
 .btn-jupyter .badge {
-  color: #072857;
+  color: #f75c03;
   background-color: #fff;
 }
 
@@ -11709,9 +11709,9 @@ fieldset[disabled] .btn-jupyter:hover {
 }
 
 .form-control:focus {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #072857;
-  border-color: #072857;
-  outline-color: #072857;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #f75c03;
+  border-color: #f75c03;
+  outline-color: #f75c03;
 }
 
 i.sort-icon {
@@ -11796,7 +11796,7 @@ a#login-main #insecure-login-warning:hover {
 #login-main .auth-form-header {
   padding: 10px 20px;
   color: #fff;
-  background: #072857;
+  background: #f75c03;
   border-radius: 3px 3px 0 0;
   font-size: large;
 }
@@ -23417,8 +23417,8 @@ button.close {
 */
 .btn-jupyter {
   color: #fff;
-  background-color: #072857;
-  border-color: #072857;
+  background-color: #f75c03;
+  border-color: #f75c03;
 }
 
 .btn-jupyter.focus,
@@ -23466,12 +23466,12 @@ button.close {
 fieldset[disabled] .btn-jupyter.focus,
 fieldset[disabled] .btn-jupyter:focus,
 fieldset[disabled] .btn-jupyter:hover {
-  background-color: #072857;
-  border-color: #072857;
+  background-color: #f75c03;
+  border-color: #f75c03;
 }
 
 .btn-jupyter .badge {
-  color: #072857;
+  color: #f75c03;
   background-color: #fff;
 }
 
@@ -23520,9 +23520,9 @@ fieldset[disabled] .btn-jupyter:hover {
 }
 
 .form-control:focus {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #072857;
-  border-color: #072857;
-  outline-color: #072857;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #f75c03;
+  border-color: #f75c03;
+  outline-color: #f75c03;
 }
 
 i.sort-icon {
@@ -23607,7 +23607,7 @@ a#login-main #insecure-login-warning:hover {
 #login-main .auth-form-header {
   padding: 10px 20px;
   color: #fff;
-  background: #072857;
+  background: #f75c03;
   border-radius: 3px 3px 0 0;
   font-size: large;
 }
