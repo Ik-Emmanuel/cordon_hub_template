@@ -55,7 +55,7 @@ title.replace(' ', '-').lower() %} {% set btn_label = btn_label or title %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gilroy:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -70,7 +70,7 @@ title.replace(' ', '-').lower() %} {% set btn_label = btn_label or title %}
 
 
         html {
-          font-family: "Raleway", sans-serif;
+          font-family: "Gilroy", sans-serif;
   
         }
 
@@ -86,7 +86,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Gilroy", sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -214,7 +214,7 @@ fieldset[disabled] .btn-jupyter:hover {
       }
 
       .hero-text {
-        font-family: "Raleway", sans-serif;
+        font-family: "Gilroy", sans-serif;
         display: flex;
         flex-direction: column;
         gap: 2rem /* 32px */;
@@ -222,7 +222,7 @@ fieldset[disabled] .btn-jupyter:hover {
       }
 
       .hero-header {
-        font-family: "Raleway", sans-serif;
+        font-family: "Gilroy", sans-serif;
         font-size: 5rem /* 48px */;
         line-height: 1;
         font-weight: 600;
@@ -232,16 +232,40 @@ fieldset[disabled] .btn-jupyter:hover {
       }
 
       .hero-subheader {
-        font-family: "Raleway", sans-serif;
+        font-family: "Gilroy", sans-serif;
         --tw-text-opacity: 1;
         color: rgb(229 231 235 / var(--tw-text-opacity));
         max-width: 600px;
         line-height: 1.75rem /* 28px */;
       }
+
+        @font-face {
+  font-family: 'Gilroy';
+  src: url("{{ static_url('fonts/gilroy/Gilroy-Regular.ttf') }} }}") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+ src: url("{{ static_url('fonts/gilroy/Gilroy-Bold.ttf') }} }}") format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url("{{ static_url('fonts/gilroy/Gilroy-Medium.ttf') }}") format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
     </style>
     <script src="{{static_url("components/requirejs/require.js") }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{static_url("components/jquery/dist/jquery.min.js") }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{static_url("components/bootstrap/dist/js/bootstrap.min.js") }}" type="text/javascript" charset="utf-8"></script>
+
+
+
 
     <script>
       require.config({
