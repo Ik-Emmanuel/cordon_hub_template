@@ -177,13 +177,12 @@ fieldset[disabled] .btn-jupyter:hover {
   font-size: large;
 }
       /* ======================= */
-
       .hero-overlay {
         width: 100%;
         height: calc(30vh);
         z-index: 10;
         --tw-bg-opacity: 1;
-        background-color: rgb(92 89 201 / var(--tw-bg-opacity));
+        background-color: rgb(59 59 59 / var(--tw-bg-opacity));
         opacity: 0.2;
         position: absolute;
         top: 0px;
@@ -200,9 +199,9 @@ fieldset[disabled] .btn-jupyter:hover {
         padding-right: 1.25rem /* 20px */;
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: bottom;
+        background-position: center;
         position: relative;
-        background-image: url("https://lwmainstorageprod.blob.core.windows.net/staticfiles/living-earth-bg.jpg");
+        background-image: url("https://lwmainstorageprod.blob.core.windows.net/staticfiles/sentinel-d-op.jpg");
         margin-bottom: 2em;
       }
 
@@ -298,7 +297,7 @@ fieldset[disabled] .btn-jupyter:hover {
   <body>
     <noscript>
       <div id="noscript">
-        JupyterHub requires JavaScript.<br />
+        CORDON requires JavaScript.<br />
         Please enable it to proceed.
       </div>
     </noscript>
@@ -308,13 +307,16 @@ fieldset[disabled] .btn-jupyter:hover {
       <div class="container-fluid">
         <div class="navbar-header">
           {% block logo %}
-          <span id="jupyterhub-logo" class="pull-left">
+        <span id="jupyterhub-logo" class="pull-left">
             <a href="{{logo_url or base_url}}"
               ><img
-                src="https://lwmainstorageprod.blob.core.windows.net/staticfiles/LivingEarth-black.png"
+                id="jupyterhub-logo-img"
+                src="https://lwmainstorageprod.blob.core.windows.net/staticfiles/CORDON-Logo-horizontal.png"
                 alt="JupyterHub logo"
                 class="jpy-logo"
                 title="Home"
+
+                style="object-fit: contain; width: 150px; height: 40px; margin-bottom: 0.5em;"
             /></a>
           </span>
           {% endblock %} {% if user %}
@@ -407,12 +409,11 @@ fieldset[disabled] .btn-jupyter:hover {
 
     <!-- #Hero section -->
 
-    <div class="home-hero">
+  <div class="home-hero">
       <div class="hero-text">
-        <span class="hero-header"> Welsh&nbsp;Data Cube </span>
+        <span class="hero-header"> CORDON Data Analysis Hub </span>
         <p class="hero-subheader">
-          The Welsh Data Cube stores the entire archive of Sentinel-1 and
-          Sentinel-2 images acquired over Wales.
+          The CORDON Cloud data analysis hub.
         </p>
       </div>
       <div class="hero-overlay"></div>
