@@ -1,0 +1,426 @@
+{% macro modal(title, btn_label=None, btn_class="btn-primary") %} {% set key =
+title.replace(' ', '-').lower() %} {% set btn_label = btn_label or title %}
+<div
+  class="modal fade"
+  id="{{key}}-dialog"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="{{key}}-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span
+          ><span class="sr-only">Close</span>
+        </button>
+        <h1 class="modal-title" id="{{key}}-label">{{title}}</h1>
+      </div>
+      <div class="modal-body">{{ caller() }}</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn {{btn_class}}"
+          data-dismiss="modal"
+          data-dismiss="modal"
+        >
+          {{btn_label}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>{% block title %}JupyterHub{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% block stylesheet %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-xxxxxxx"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://lwmainstorageprod.blob.core.windows.net/staticfiles/style.min.css"
+    type="text/css"/> {% endblock %} {% block favicon %} <link rel="icon"
+    href="{{ static_url("favicon.ico") }}" type="image/x-icon"> {% endblock %}
+    <style>
+      /* ============== new  */
+
+
+      /* =============== overwrite styles  */
+
+
+        html {
+          font-family: "Raleway", sans-serif;
+  
+        }
+
+        .h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+
+.btn-jupyter {
+  color: #fff;
+  background-color: #072857;
+  border-color: #072857;
+}
+
+.btn-jupyter.focus,
+.btn-jupyter:focus {
+  color: #fff;
+  background-color: #1d2865;
+  border-color: #1d2865;
+}
+
+.btn-jupyter:hover {
+  color: #fff;
+  background-color: #1d2865;
+  border-color: #1d2865;
+}
+
+.btn-jupyter.active,
+.btn-jupyter:active,
+.open > .dropdown-toggle.btn-jupyter {
+  color: #fff;
+  background-color: #1d2865;
+  background-image: none;
+  border-color: #1d2865;
+}
+
+.btn-jupyter.active.focus,
+.btn-jupyter.active:focus,
+.btn-jupyter.active:hover,
+.btn-jupyter:active.focus,
+.btn-jupyter:active:focus,
+.btn-jupyter:active:hover,
+.open > .dropdown-toggle.btn-jupyter.focus,
+.open > .dropdown-toggle.btn-jupyter:focus,
+.open > .dropdown-toggle.btn-jupyter:hover {
+  color: #fff;
+  background-color: #b64d0a;
+  border-color: #1d2865;
+}
+
+.btn-jupyter.disabled.focus,
+.btn-jupyter.disabled:focus,
+.btn-jupyter.disabled:hover,
+.btn-jupyter[disabled].focus,
+.btn-jupyter[disabled]:focus,
+.btn-jupyter[disabled]:hover,
+fieldset[disabled] .btn-jupyter.focus,
+fieldset[disabled] .btn-jupyter:focus,
+fieldset[disabled] .btn-jupyter:hover {
+  background-color: #072857;
+  border-color: #072857;
+}
+
+
+.btn-jupyter .badge {
+  color: #072857;
+  background-color: #fff;
+}
+
+#jupyterhub-logo .jpy-logo {
+  height: 18px;
+  margin-top: 12px;
+  margin-right: 4px;
+}
+
+
+.form-control:focus {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #072857;
+  border-color: #072857;
+  outline-color: #072857;
+}
+
+
+
+#login-main .auth-form-header {
+  padding: 10px 20px;
+  color: #fff;
+  background: #072857;
+  border-radius: 3px 3px 0 0;
+  font-size: large;
+}
+      /* ======================= */
+
+      .hero-overlay {
+        width: 100%;
+        height: calc(30vh);
+        z-index: 10;
+        --tw-bg-opacity: 1;
+        background-color: rgb(92 89 201 / var(--tw-bg-opacity));
+        opacity: 0.2;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+
+      .home-hero {
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 1.25rem /* 20px */;
+        padding-right: 1.25rem /* 20px */;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        position: relative;
+        background-image: url("https://lwmainstorageprod.blob.core.windows.net/staticfiles/living-earth-bg.jpg");
+        margin-bottom: 2em;
+      }
+
+      @media (min-width: 768px) {
+        .home-hero {
+          justify-content: space-between;
+          padding-left: 6rem /* 96px */;
+          padding-right: 6rem /* 96px */;
+        }
+      }
+
+      .hero-text {
+        font-family: "Raleway", sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem /* 32px */;
+        z-index: 50;
+      }
+
+      .hero-header {
+        font-family: "Raleway", sans-serif;
+        font-size: 5rem /* 48px */;
+        line-height: 1;
+        font-weight: 600;
+        --tw-text-opacity: 1;
+        /* color: rgb(225 255 255 / var(--tw-text-opacity)); */
+        color: white;
+      }
+
+      .hero-subheader {
+        font-family: "Raleway", sans-serif;
+        --tw-text-opacity: 1;
+        color: rgb(229 231 235 / var(--tw-text-opacity));
+        max-width: 600px;
+        line-height: 1.75rem /* 28px */;
+      }
+    </style>
+    <script src="{{static_url("components/requirejs/require.js") }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{static_url("components/jquery/dist/jquery.min.js") }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{static_url("components/bootstrap/dist/js/bootstrap.min.js") }}" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+      require.config({
+          {% if version_hash %}
+          urlArgs: "v={{version_hash}}",
+          {% endif %}
+          baseUrl: '{{static_url("js", include_version=False)}}',
+
+          paths: {
+            components: '../components',
+            jquery: '../components/jquery/dist/jquery.min',
+            bootstrap: '../components/bootstrap/dist/js/bootstrap.min',
+            moment: "../components/moment/moment",
+          },
+          shim: {
+            bootstrap: {
+              deps: ["jquery"],
+              exports: "bootstrap"
+            },
+          }
+      });
+    </script>
+
+    <script type="text/javascript">
+      window.jhdata = {
+        base_url: "{{base_url}}",
+        prefix: "{{prefix}}",
+        {% if user %}
+        {#
+          Autoescaping in templates is turned on in JupyterHub,
+          need `| safe` to prevent escaping
+          https://github.com/pallets/markupsafe/blob/2.1.4/src/markupsafe/_native.py#L6
+        #}
+        user: "{{ user.json_escaped_name | safe }}",
+        {% endif %}
+        {% if admin_access %}
+        admin_access: true,
+        {% else %}
+        admin_access: false,
+        {% endif %}
+        {% if not no_spawner_check and user and user.spawner.options_form %}
+        options_form: true,
+        {% else %}
+        options_form: false,
+        {% endif %}
+        xsrf_token: "{{ xsrf_token }}",
+      }
+    </script>
+
+    {% block meta %} {% endblock %}
+  </head>
+
+  <body>
+    <noscript>
+      <div id="noscript">
+        JupyterHub requires JavaScript.<br />
+        Please enable it to proceed.
+      </div>
+    </noscript>
+
+    {% block nav_bar %}
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          {% block logo %}
+          <span id="jupyterhub-logo" class="pull-left">
+            <a href="{{logo_url or base_url}}"
+              ><img
+                src="https://lwmainstorageprod.blob.core.windows.net/staticfiles/LivingEarth-black.png"
+                alt="JupyterHub logo"
+                class="jpy-logo"
+                title="Home"
+            /></a>
+          </span>
+          {% endblock %} {% if user %}
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#thenavbar"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          {% endif %}
+        </div>
+
+        <div class="collapse navbar-collapse" id="thenavbar">
+          {% if user %}
+          <ul class="nav navbar-nav">
+            {% block nav_bar_left_items %}
+            <li><a href="{{base_url}}home">Home</a></li>
+            <li><a href="{{base_url}}token">Token</a></li>
+            {% if 'admin-ui' in parsed_scopes %}
+            <li><a href="{{base_url}}admin">Admin</a></li>
+            {% endif %} {% if services %}
+            <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Services<span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu">
+                {% for service in services %} {% block service scoped %}
+                <li>
+                  <a class="dropdown-item" href="{{service.href}}"
+                    >{{service.name}}</a
+                  >
+                </li>
+                {% endblock %} {% endfor %}
+              </ul>
+            </li>
+            {% endif %} {% endblock %}
+          </ul>
+          {% endif %}
+          <ul class="nav navbar-nav navbar-right">
+            {% block nav_bar_right_items %}
+            <li>
+              {% block login_widget %}
+              <span id="login_widget">
+                {% if user %}
+                <p class="navbar-text">{{user.name}}</p>
+                <a
+                  id="logout"
+                  role="button"
+                  class="navbar-btn btn-sm btn btn-default"
+                  href="{{logout_url}}"
+                >
+                  <i aria-hidden="true" class="fa fa-sign-out"></i> Logout</a
+                >
+                {% else %}
+                <a
+                  id="login"
+                  role="button"
+                  class="btn-sm btn navbar-btn btn-default"
+                  href="{{login_url}}"
+                  >Login</a
+                >
+                {% endif %}
+              </span>
+              {% endblock %}
+            </li>
+            {% endblock %}
+          </ul>
+        </div>
+
+        {% block header %} {% endblock %}
+      </div>
+    </nav>
+    {% endblock %} {% block announcement %} {% if announcement %}
+    <div class="container text-center announcement alert alert-warning">
+      {{ announcement | safe }}
+    </div>
+    {% endif %} {% endblock %}
+
+    <!-- #Hero section -->
+
+    <div class="home-hero">
+      <div class="hero-text">
+        <span class="hero-header"> Welsh&nbsp;Data Cube </span>
+        <p class="hero-subheader">
+          The Welsh Data Cube stores the entire archive of Sentinel-1 and
+          Sentinel-2 images acquired over Wales.
+        </p>
+      </div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    {% block main %} {% endblock %} {% block footer %} {% endblock %} {% call
+    modal('Error', btn_label='OK') %}
+    <div class="ajax-error">The error</div>
+    {% endcall %} {% block script %} {% endblock %}
+  </body>
+</html>
